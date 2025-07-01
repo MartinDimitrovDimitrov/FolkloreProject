@@ -17,13 +17,20 @@
 
 <p><span class="label">Culture Group:</span> {{ tale.culture_group }}</p>
 <p><span class="label">Collector:</span> {{ tale.collector }} ({{ tale.year_collected }})</p>
-<p><span class="label">Source:</span> {{ tale.source }}</p>
+<p><span class="label">Source:</span>
+  {% if tale.source_title %}
+    {{ tale.source_title }}{% if tale.source_page %}, p. {{ tale.source_page }}{% endif %}
+  {% else %}
+    (No source info)
+  {% endif %}
+</p>
+
+{% if tale.source_link %}
+  <p><span class="label">Link:</span> <a href="{{ tale.source_link }}" target="_blank">{{ tale.source_link }}</a></p>
+{% endif %}
 <p><span class="label">Location:</span> {{ tale.location_name }} ({{ tale.region }})</p>
 {% if tale.notes %}
   <p><span class="label">Notes:</span> {{ tale.notes }}</p>
-{% endif %}
-{% if tale.link %}
-  <p><span class="label">Link:</span> <a href="{{ tale.link }}" target="_blank">{{ tale.link }}</a></p>
 {% endif %}
 
 <br>

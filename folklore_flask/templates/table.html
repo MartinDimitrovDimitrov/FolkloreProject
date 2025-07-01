@@ -99,8 +99,18 @@
     <td>{{ t.culture_group }}</td>
     <td>{{ t.collector }}</td>
     <td>{{ t.year_collected }}</td>
-    <td>{{ t.source }}</td>
-    <td>{% if t.link %}<a href="{{ t.link }}" target="_blank">Link</a>{% endif %}</td>
+    <td>
+      {% if t.source_title %}
+        {{ t.source_title }}{% if t.source_page %}, p. {{ t.source_page }}{% endif %}
+      {% else %}
+        –
+      {% endif %}
+    </td>
+    <td>
+      {% if t.source_link %}
+        <a href="{{ t.source_link }}" target="_blank">Link</a>
+      {% endif %}
+    </td>
     <td>{{ t.notes }}</td>
   </tr>
     {% endfor %}
