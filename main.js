@@ -7,7 +7,7 @@ import { loadTales } from './index.js';
 
 $(document).ready(async function () {
     const table = initTable();
-    await loadTales(table);  // now allowed because function is async
+    await loadTales(table);
     initSelectionPanel(table);
     initMap();
     initLegend(table);
