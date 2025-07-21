@@ -10,10 +10,6 @@ export function initTable() {
         ],
     });
 
-    table.on('search.dt', function() {
-        console.log('Global search triggered:', table.search());
-    });
-
     table.on('draw.dt', function () {
         const pageInfo = table.page.info();
         table.column(0, {page: 'current'}).nodes().each(function (cell, i) {
