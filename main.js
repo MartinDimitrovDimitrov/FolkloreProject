@@ -5,9 +5,9 @@ import { initLegend } from './legendManager.js';
 import { initFilters } from './filters.js';
 import { loadTales } from './index.js';
 
-$(document).ready(function () {
+$(document).ready(async function () {
     const table = initTable();
-    await loadTales(table);
+    await loadTales(table);  // now allowed because function is async
     initSelectionPanel(table);
     initMap();
     initLegend(table);

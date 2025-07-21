@@ -1,6 +1,6 @@
 const API_BASE = 'https://folkloreproject.onrender.com';
 
-async function loadTales(table) {
+export async function loadTales(table) {
   try {
     const response = await fetch(`${API_BASE}/tales`);
     if (!response.ok) throw new Error('Failed to fetch tales');
