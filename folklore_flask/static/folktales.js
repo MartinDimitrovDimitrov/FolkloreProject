@@ -1,4 +1,8 @@
+// old file, no longer in use
+
 $(document).ready(function () {
+
+    // tableManager
 
     const table = $('#tales-table').DataTable({
         pageLength: 10,
@@ -20,29 +24,29 @@ $(document).ready(function () {
     // Trigger draw.dt to fire (initialize numbering)
     table.draw(false);
 
-  let selected = {};
-  let markers = {};  // tale_id → marker
-  let map = L.map('map').setView([54.0, -130.0], 4);  // PNW-centered
-  const styleLegend = {};  // key: "color|shape" → name
+    let selected = {};
+    let markers = {};  // tale_id → marker
+    let map = L.map('map').setView([54.0, -130.0], 4);  // PNW-centered
+    const styleLegend = {};  // key: "color|shape" → name
 
-  // Map base tile
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
+    // Map base tile
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 
-  $('#tales-table').on('change','.row-check', function(){
-        const taleId = $(this).data('taleid');
-        if(this.checked){
-            selected[taleId] = $(this).data();
-        }else{
-            delete selected[taleId];
-        }
-        updatePanel();
-  });
+    $('#tales-table').on('change','.row-check', function(){
+            const taleId = $(this).data('taleid');
+            if(this.checked){
+                selected[taleId] = $(this).data();
+            }else{
+                delete selected[taleId];
+            }
+            updatePanel();
+    });
 
-  table.on('search.dt', function() {
-    console.log('Global search triggered:', table.search());
-});
+    table.on('search.dt', function() {
+        console.log('Global search triggered:', table.search());
+    });
 
     table.on('draw', function() {
         // For all rows currently visible
@@ -297,16 +301,16 @@ $(document).ready(function () {
         });
     });
 
-  // Remove from map
-  $('#remove-map').on('click', ()=>{
-    Object.values(selected).forEach(tale => {
-        const id = tale.taleid;
-        if (markers[id]) {
-            map.removeLayer(markers[id]);
-            delete markers[id];
-        }
+    // Remove from map
+    $('#remove-map').on('click', ()=>{
+        Object.values(selected).forEach(tale => {
+            const id = tale.taleid;
+            if (markers[id]) {
+                map.removeLayer(markers[id]);
+                delete markers[id];
+            }
+        });
     });
-  });
 
     $('#unselect-all').on('click', function () {
         selected = {};  // Clear selection dictionary
@@ -383,12 +387,13 @@ $(document).ready(function () {
         });
     });
 
-  const $filter = $(`
-  <div class="filter-block" style="display: block; margin-top: 10px;">
-    <!-- filter content -->
-  </div>
-`);
-$('#filters-list').append($filter);
+    const $filter = $(`
+    <div class="filter-block" style="display: block; margin-top: 10px;">
+        <!-- filter content -->
+    </div>
+    `);
+
+    $('#filters-list').append($filter);
 
     let filterCount = 0;
     $('#add-filter').on('click', () => {
