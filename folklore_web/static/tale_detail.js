@@ -46,7 +46,7 @@ async function fetchTale() {
   }
 
   try {
-    const response = await fetch(`${API_BASE}/api/tales/${taleId}`);
+    const response = await fetch(`${API_BASE}/tales/${taleId}`);
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
     }

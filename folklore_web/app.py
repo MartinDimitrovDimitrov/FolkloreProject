@@ -25,7 +25,7 @@ def get_tales():
         tales = [dict(row._mapping) for row in result.fetchall()]
     return jsonify(tales)
 
-@app.route('/tale/<int:tale_id>')
+@app.route('/tales/<int:tale_id>')
 def tale_detail(tale_id):
     with engine.connect() as conn:
         result = conn.execute(text("""
