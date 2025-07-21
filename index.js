@@ -40,5 +40,3 @@ export async function loadTales(table) {
     alert('Failed to load tales');
   }
 }
-
-document.addEventListener('DOMContentLoaded', loadTales);
