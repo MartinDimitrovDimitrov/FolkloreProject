@@ -1,8 +1,8 @@
 const API_BASE = 'https://folkloreproject.onrender.com';
 
-function getTaleIdFromPath() {
-  const parts = window.location.pathname.split('/');
-  return parts[parts.length - 1]; // e.g., '35'
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
 }
 
 function fillTale(tale) {
@@ -39,7 +39,7 @@ function fillTale(tale) {
 }
 
 async function fetchTale() {
-  const taleId = getTaleIdFromPath();
+  const taleId = getQueryParam('tale_id');
   if (!taleId) {
     alert('No tale_id provided in URL');
     return;
