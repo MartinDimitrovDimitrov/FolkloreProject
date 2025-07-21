@@ -153,47 +153,8 @@
         </tr>
       </thead>
 
-      <tbody>
-        {% for t in tales %}
-        <tr>
-        <td></td>  <!-- ← This will be filled with the row number -->
-        <td>
-          <input type="checkbox"
-                class="row-check"
-                data-taleid="{{ t.tale_id }}"
-                data-title="{{ t.title }}"
-                data-culture="{{ t.culture_group }}"
-                data-collector="{{ t.collector }}"
-                data-year="{{ t.year_collected }}"
-                data-source="{{ t.source }}"
-                data-link="{{ t.link }}"
-                data-notes="{{ t.notes }}"
-                data-lat="{{ t.lat }}"
-                data-lon="{{ t.lon }}"
-                data-location="{{ t.location_name }}">
-        </td>
-        <td><a href="/tale/{{ t.tale_id }}" target="_blank" rel="noopener noreferrer">{{ t.title }}</a></td>
-        <td>{{ t.culture_group or "(Not provided)"}}</td>
-        <td>{{ t.collector or "(Not provided)"}}</td>
-        <td>{{ t.year_collected or "(Not provided)"}}</td>
-        <td>
-          {% if t.source_title %}
-            {{ t.source_title }}{% if t.source_page %}, p. {{ t.source_page }}{% endif %}
-          {% else %}
-            (Not provided)
-          {% endif %}
-        </td>
-        <td>
-          {% if t.source_link %}
-            <a href="{{ t.source_link }}" title="Open source in a new tab" target="_blank" rel="noopener noreferrer nofollow">View Source</a>
-          {% else %} 
-            (Not provided)
-          {% endif %}
-        </td>
-        <td>{{ t.notes or "(Not provided)"}}</td>
-      </tr>
-        {% endfor %}
-      </tbody>
+      <tbody></tbody> <!-- Rows will be inserted by JS -->
+
     </table>
 
     <!-- Selected tales panel -->
