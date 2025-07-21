@@ -1,39 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{{ tale.title }}</title>
+
     <style>
-      body { font-family: Arial, sans-serif; margin: 30px; max-width: 700px; }
-      h1 { margin-bottom: 10px; }
-      .label { font-weight: bold; margin-top: 12px; }
-      a { color: #004488; text-decoration: none; }
-      a:hover { text-decoration: underline; }
+      body { 
+        font-family: Arial, Helvetica, sans-serif; 
+        margin: 25px; 
+        max-width: 700px; 
+        line-height: 1.5;
+      }
+
+      a { 
+        color: #004488; 
+        text-decoration: none; 
+      }
+
+      a:hover { 
+        text-decoration: underline; 
+      }
+
+      dl {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        row-gap: 10px;
+        column-gap: 15px;
+        margin-top: 20px;
+      }
+
+      dt {
+        font-weight: bold;
+      }
+
+      dd {
+        margin: 0;
+      }
     </style>
 </head>
 <body>
+  <article>
 
-<h1>{{ tale.title }}</h1>
+    <h1>{{ tale.title }}</h1>
 
-<p><span class="label">Culture Group:</span> {{ tale.culture_group }}</p>
-<p><span class="label">Collector:</span> {{ tale.collector }} ({{ tale.year_collected }})</p>
-<p><span class="label">Source:</span>
-  {% if tale.source_title %}
-    {{ tale.source_title }}{% if tale.source_page %}, p. {{ tale.source_page }}{% endif %}
-  {% else %}
-    (No source info)
-  {% endif %}
-</p>
+    <dl>
+      <dt>Culture Group:</dt>
+      <dd>{{ tale.culture_group or "(Not provided)" }}</dd>
 
-{% if tale.source_link %}
-  <p><span class="label">Link:</span> <a href="{{ tale.source_link }}" target="_blank">{{ tale.source_link }}</a></p>
-{% endif %}
-<p><span class="label">Location:</span> {{ tale.location_name }} ({{ tale.region }})</p>
-{% if tale.notes %}
-  <p><span class="label">Notes:</span> {{ tale.notes }}</p>
-{% endif %}
+      <dt>Collector:</dt>
+      <dd>{{ tale.collector or "(Not provided)" }}</dd>
 
-<br>
+      <dt>Year Collected:</dt>
+      <dd>{{ tale.year_collected or "(Not provided)" }}</dd>
 
+      <dt>Source:</dt>
+      <dd>
+        {% if tale.source_title %}
+          {{ tale.source_title }}{% if tale.source_page %}, p. {{ tale.source_page }}{% endif %}
+        {% else %}
+          (Not provided)
+        {% endif %}
+      </dd>
+      
+      <dt>Link:</dt>
+      <dd>
+        {% if tale.source_link %}
+          <a href="{{ tale.source_link }}" title="Open source in a new tab" target="_blank" rel="noopener noreferrer nofollow">View Source</a>
+        {% else %} 
+          (Not provided)
+        {% endif %}
+      </dd>
+
+      <dt>Location:</dt>
+      <dd>
+        {{ tale.location_name or "(Not provided)" }} 
+        {%- if tale.region -%}, {{ tale.region }}{% endif %}
+      </dd>
+
+      <dt>Notes:</dt>
+      <dd>{{ tale.notes or "(Not provided)" }}</dd>
+    </dl>
+
+  </article>
 </body>
 </html>

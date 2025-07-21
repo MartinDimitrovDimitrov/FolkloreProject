@@ -1,13 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify
+from flask_cors import CORS
 from sqlalchemy import create_engine, text
 
 app = Flask(__name__)
+CORS(app)  # allow all origins, or configure specifically
 
 # Update with your own credentials if needed
-engine = create_engine("postgresql+psycopg2://postgres:Boldt1974@localhost:5432/folklore")
+engine = create_engine("postgresql://neondb_owner:npg_nZg5qEKQyVi0@ep-muddy-king-ae8z92ey-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require")
 
-@app.route('/')
-def index():
+@app.route('/tales')
+def get_tales():
     with engine.connect() as conn:
         result = conn.execute(text("""
             SELECT tales.tale_id, tales.title, tales.culture_group, tales.collector,
@@ -20,7 +22,7 @@ def index():
             LEFT JOIN sources ON tales.source_id = sources.source_id
         """))
         tales = [dict(row._mapping) for row in result.fetchall()]
-    return render_template('table.html', tales=tales)
+    return jsonify(tales)
 
 @app.route('/tale/<int:tale_id>')
 def tale_detail(tale_id):
@@ -39,9 +41,9 @@ def tale_detail(tale_id):
         """), {'id': tale_id})
         tale = result.fetchone()
         if not tale:
-            return "Tale not found", 404
+            return jsonify({'error': 'Tale not found'}), 404
         tale = dict(tale._mapping)  # Convert row to dictionary
-    return render_template('tale_detail.html', tale=tale)
+    return jsonify(tale)
 
 if __name__ == '__main__':
     app.run(debug=True)
