@@ -1,14 +1,12 @@
 const API_BASE = 'https://folkloreproject.onrender.com';
 
-async function loadTales() {
+async function loadTales(table) {
   try {
     const response = await fetch(`${API_BASE}/tales`);
     if (!response.ok) throw new Error('Failed to fetch tales');
     const talesData = await response.json();
 
-    const table = $('#tales-table').DataTable();
-
-    table.clear();          // Clear any existing rows
+    table.clear();
     talesData.forEach((tale, index) => {
       table.row.add([
         index + 1,
@@ -35,7 +33,7 @@ async function loadTales() {
         tale.notes || "(Not provided)"
       ]);
     });
-    table.draw();  // Redraw to update table with new data
+    table.draw();
 
   } catch (err) {
     console.error(err);
