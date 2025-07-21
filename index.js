@@ -24,7 +24,7 @@ export async function loadTales(table) {
             data-lon="${tale.lon || ''}"
             data-location="${tale.location_name || ''}">
         `,
-        <a href="tale_detail.html?tale_id=${tale.tale_id}" target="_blank" rel="noopener noreferrer">${tale.title}</a>,
+        `<a href="tale_detail.html?tale_id=${tale.tale_id}" target="_blank" rel="noopener noreferrer">${tale.title}</a>`,
         tale.culture_group || "(Not provided)",
         tale.collector || "(Not provided)",
         tale.year_collected || "(Not provided)",
