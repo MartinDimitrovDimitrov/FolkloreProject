@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ tale.title }}</title>
+    <title id="tale-title">Tale Detail</title>
 
     <style>
       body { 
@@ -43,46 +43,33 @@
 <body>
   <article>
 
-    <h1>{{ tale.title }}</h1>
+    <h1 id="tale-title">Loading...</h1>
 
     <dl>
       <dt>Culture Group:</dt>
-      <dd>{{ tale.culture_group or "(Not provided)" }}</dd>
+      <dd id="culture-group"></dd>
 
       <dt>Collector:</dt>
-      <dd>{{ tale.collector or "(Not provided)" }}</dd>
+      <dd id="collector"></dd>
 
       <dt>Year Collected:</dt>
-      <dd>{{ tale.year_collected or "(Not provided)" }}</dd>
+      <dd id="year-collected"></dd>
 
       <dt>Source:</dt>
-      <dd>
-        {% if tale.source_title %}
-          {{ tale.source_title }}{% if tale.source_page %}, p. {{ tale.source_page }}{% endif %}
-        {% else %}
-          (Not provided)
-        {% endif %}
-      </dd>
+      <dd id="source"></dd>
       
       <dt>Link:</dt>
-      <dd>
-        {% if tale.source_link %}
-          <a href="{{ tale.source_link }}" title="Open source in a new tab" target="_blank" rel="noopener noreferrer nofollow">View Source</a>
-        {% else %} 
-          (Not provided)
-        {% endif %}
-      </dd>
+      <dd id="source-link"></dd>
 
       <dt>Location:</dt>
-      <dd>
-        {{ tale.location_name or "(Not provided)" }} 
-        {%- if tale.region -%}, {{ tale.region }}{% endif %}
-      </dd>
+      <dd id="location"></dd>
 
       <dt>Notes:</dt>
-      <dd>{{ tale.notes or "(Not provided)" }}</dd>
+      <dd id="notes"></dd>
     </dl>
 
   </article>
+
+  <script src="tale_detail.js"></script>
 </body>
 </html>
