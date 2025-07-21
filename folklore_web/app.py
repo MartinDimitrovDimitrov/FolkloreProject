@@ -1,12 +1,13 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from sqlalchemy import create_engine, text
+import os
 
 app = Flask(__name__)
 CORS(app)  # allow all origins, or configure specifically
 
-# Update with your own credentials if needed
-engine = create_engine("postgresql://neondb_owner:npg_nZg5qEKQyVi0@ep-muddy-king-ae8z92ey-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require")
+DATABASE_URL = os.environ.get("DATABASE_URL")
+engine = create_engine(DATABASE_URL)
 
 @app.route('/tales')
 def get_tales():

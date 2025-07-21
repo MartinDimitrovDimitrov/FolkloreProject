@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: folklore-api
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_nZg5qEKQyVi0@ep-muddy-king-ae8z92ey-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
