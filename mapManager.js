@@ -14,6 +14,8 @@ export function initMap() {
         const color = $('#pin-color').val();
         const shape = $('#pin-shape').val();
 
+        const oms = new OverlappingMarkerSpiderfier(map); // needed to handle overlapping pins
+
         Object.values(selected).forEach(tale => {
             const id = tale.taleid;
             updateLegend(color, shape);
@@ -26,7 +28,7 @@ export function initMap() {
             markers[id] = L.marker([tale.lat, tale.lon], {
                 icon: createSvgIcon(shape, color),
                 styleKey: styleKey,
-                taleData: tale  // ← store all tale data for use later
+                taleData: tale  // store all tale data for use later
             });
 
             markers[id].bindPopup(`<b>${tale.title}</b><br>${tale.location}`)
@@ -37,6 +39,7 @@ export function initMap() {
                         checkbox.trigger('change');
                     }
                 });
+            oms.addMarker(marker[id]);  // needed to handle overlapping pins
             markers[id].addTo(map);
         });
     });
