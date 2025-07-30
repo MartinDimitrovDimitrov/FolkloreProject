@@ -31,7 +31,7 @@ export function initMap() {
             const styleKey = `${color}|${shape}`;
 
             // Add a small jitter to avoid exact overlap
-            const jitter = (Math.random() - 0.5) * 0.001;  // ~0.0005 degrees ≈ ~50 meters
+            const jitter = (Math.random() - 0.5) * 0.1;
             const lat = parseFloat(tale.lat) + jitter;
             const lon = parseFloat(tale.lon) + jitter;
 
