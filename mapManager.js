@@ -17,7 +17,7 @@ export function initMap() {
         const shape = $('#pin-shape').val();
 
         if (!oms) {
-            oms = new window.OverlappingMarkerSpiderfier.OverlappingMarkerSpiderfier(map); // needed to handle overlapping pins
+            oms = new OverlappingMarkerSpiderfier(map); // needed to handle overlapping pins
         } 
 
         Object.values(selected).forEach(tale => {
