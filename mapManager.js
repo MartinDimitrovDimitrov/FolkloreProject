@@ -9,16 +9,16 @@ export function initMap() {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    let oms; // needed to handle overlapping pins
+    // let oms; // needed to handle overlapping pins
 
     // Add to map
     $('#add-map').on('click', () => {
         const color = $('#pin-color').val();
         const shape = $('#pin-shape').val();
 
-        if (!oms) {
-            oms = new window.OverlappingMarkerSpiderfier(map); // needed to handle overlapping pins
-        } 
+        // if (!oms) {
+        //     oms = new window.OverlappingMarkerSpiderfier(map); // needed to handle overlapping pins
+        // } 
 
         Object.values(selected).forEach(tale => {
             const id = tale.taleid;
@@ -29,7 +29,13 @@ export function initMap() {
             }
 
             const styleKey = `${color}|${shape}`;
-            markers[id] = L.marker([tale.lat, tale.lon], {
+
+            // Add a small jitter to avoid exact overlap
+            const jitter = (Math.random() - 0.5) * 0.001;  // ~0.0005 degrees ≈ ~50 meters
+            const lat = parseFloat(tale.lat) + jitter;
+            const lon = parseFloat(tale.lon) + jitter;
+
+            markers[id] = L.marker([lat, lon], {
                 icon: createSvgIcon(shape, color),
                 styleKey: styleKey,
                 taleData: tale  // store all tale data for use later
@@ -43,10 +49,8 @@ export function initMap() {
                         checkbox.trigger('change');
                     }
                 });
-            oms.addMarker(markers[id]);  // needed to handle overlapping pins
+            // oms.addMarker(markers[id]);  // needed to handle overlapping pins
             markers[id].addTo(map);
-
-            oms.spiderfy(markers[id]);
         });
     });
 
