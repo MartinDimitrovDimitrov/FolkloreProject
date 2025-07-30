@@ -45,6 +45,8 @@ export function initMap() {
                 });
             oms.addMarker(markers[id]);  // needed to handle overlapping pins
             markers[id].addTo(map);
+
+            oms.spiderfy(markers[id]);
         });
     });
 
