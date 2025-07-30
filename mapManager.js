@@ -39,7 +39,7 @@ export function initMap() {
                         checkbox.trigger('change');
                     }
                 });
-            oms.addMarker(marker[id]);  // needed to handle overlapping pins
+            oms.addMarker(markers[id]);  // needed to handle overlapping pins
             markers[id].addTo(map);
         });
     });
