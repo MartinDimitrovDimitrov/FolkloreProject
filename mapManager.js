@@ -164,7 +164,7 @@ export function initMap() {
             },
             onEachFeature: function (feature, layer) {
                 const name = feature.properties.Name || 'No name';
-                const family = feature.properties.family || 'Unknown';
+                const family = feature.properties.Family || 'Unknown';
                 layer.bindPopup(`<strong>${name}</strong><br>Family: ${family}`);
             }
         }).addTo(map);
