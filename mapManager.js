@@ -10,7 +10,7 @@ export function initMap() {
     }).addTo(map);
 
     // Add language regions
-    fetch('./native_languages.geojson')
+    fetch('./native_languages2.geojson')
     .then(response => response.json())
     .then(geojsonData => {
         L.geoJSON(geojsonData, {
