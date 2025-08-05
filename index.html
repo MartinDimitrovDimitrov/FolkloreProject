@@ -204,6 +204,9 @@
       <div style="margin-top: 10px; margin-bottom: 12px;">
         <button id="clear-map" class="btn">Clear Map</button>
         <button id="select-map" class="btn">Select All on Map</button>
+        <button id="export-map-data" class="btn">Export Map Data</button>
+        <button id="import-map-data" class="btn">Import Map Data</button>
+        <input type="file" id="import-file" accept=".json" style="display: none;">
       </div>
       <div id="map"></div>
     </div>
@@ -250,9 +253,6 @@
 <script
   src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
-
-<!-- OverlappingMarkerSpiderfier for Leaflet -->
-<script src="https://cdn.jsdelivr.net/npm/overlapping-marker-spiderfier-leaflet/dist/oms.min.js"></script>
 
 <script type="module" src="main.js"></script>
 

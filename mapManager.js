@@ -9,16 +9,10 @@ export function initMap() {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // let oms; // needed to handle overlapping pins
-
     // Add to map
     $('#add-map').on('click', () => {
         const color = $('#pin-color').val();
         const shape = $('#pin-shape').val();
-
-        // if (!oms) {
-        //     oms = new window.OverlappingMarkerSpiderfier(map); // needed to handle overlapping pins
-        // } 
 
         Object.values(selected).forEach(tale => {
             const id = tale.taleid;
@@ -74,4 +68,6 @@ export function initMap() {
             Object.keys(markers).forEach(key => delete markers[key]); // Reset the markers object
         }
     });
+
+    return map;
 }

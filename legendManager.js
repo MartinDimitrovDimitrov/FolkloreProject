@@ -174,3 +174,11 @@ export function createSvgIcon(shape, color) {
         popupAnchor: [0, -size]
     });
 }
+
+// Used for exporting functionality
+export function getLegendData() {
+    return Object.entries(styleLegend).map(([key, name]) => ({
+        key,
+        name
+    }));
+}
