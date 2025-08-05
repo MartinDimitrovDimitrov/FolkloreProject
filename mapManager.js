@@ -9,6 +9,22 @@ export function initMap() {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
+    // Add language regions
+    fetch('./native_languages.geojson')
+    .then(response => response.json())
+    .then(geojsonData => {
+        L.geoJSON(geojsonData, {
+        style: {
+            color: '#444',
+            weight: 1,
+            fillOpacity: 0.2
+        },
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.Name || 'No name');
+        }
+        }).addTo(map);
+    });
+
     // Add to map
     $('#add-map').on('click', () => {
         const color = $('#pin-color').val();
