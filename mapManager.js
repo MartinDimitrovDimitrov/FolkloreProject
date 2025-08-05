@@ -155,6 +155,7 @@ export function initMap() {
         L.geoJSON(geojsonData, {
             style: feature => {
                 const family = feature.properties.family || 'Unknown';
+                console.log('Family:', family, 'Color:', familyColors[family]);
                 return {
                     color: '#444',
                     weight: 1,
