@@ -141,20 +141,10 @@ export function initMap() {
     fetch('./native_languages2.geojson')
     .then(response => response.json())
     .then(geojsonData => {
-        // L.geoJSON(geojsonData, {
-        // style: {
-        //     color: '#444',
-        //     weight: 1,
-        //     fillOpacity: 0.2
-        // },
-        // onEachFeature: function (feature, layer) {
-        //     layer.bindPopup(feature.properties.Name || 'No name');
-        // }
-        // }).addTo(map);
 
         L.geoJSON(geojsonData, {
             style: feature => {
-                const family = feature.properties.family || 'Unknown';
+                const family = feature.properties.Family || 'Unknown';
                 console.log('Family:', family, 'Color:', familyColors[family]);
                 return {
                     color: '#444',
