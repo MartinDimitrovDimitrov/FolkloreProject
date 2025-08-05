@@ -1,0 +1,123 @@
+Afro-Asiatic
+Ainu
+Algic
+Araucanian
+Arawakan
+Arawan
+Artificial Language
+Athabaskan-Eyak-Tlingit
+Atlantic-Congo
+Austroasiatic
+Austronesian
+Aymaran
+Barbacoan
+Bookkeeping
+Boran
+Bororoan
+Bunaban
+Caddoan
+Cahuapanan
+Cariban
+Chapacuran
+Charruan
+Chibchan
+Chicham
+Chimakuan
+Chinookan
+Chiquitano
+Chocoan
+Chonan
+Chumashan
+Cochimi-Yuman
+Coosan
+East Strickland
+Eastern Daly
+Eastern Trans-Fly
+Eskimo-Aleut
+Garrwan
+Giimbiyu
+Guahiboan
+Guaicuruan
+Gunwinyguan
+Haida
+Huavean
+Huitotoan
+Indo-European
+Iroquoian
+Iwaidjan Proper
+Japonic
+Jarrakan
+Kakua-Nukak
+Kalapuyan
+Katukinan
+Kawesqar
+Keresan
+Kiowa-Tanoan
+Koreanic
+Lencan
+Lengua-Mascoy
+Limilngan-Wulna
+Maiduan
+Mairasic
+Mangarrayi-Maran
+Maningrida
+Mataguayan
+Mayan
+Mirndi
+Misumalpan
+Miwok-Costanoan
+Mixe-Zoque
+Muskogean
+Naduhup
+Nambiquaran
+Northern Daly
+Nuclear Torricelli
+Nuclear Trans New Guinea
+Nuclear-Macro-Je
+Nyimang
+Nyulnyulan
+Otomanguean
+Palaihnihan
+Pama-Nyungan
+Pano-Tacanan
+Peba-Yagua
+Pidgin
+Pomoan
+Quechuan
+Sahaptian
+Saharan
+Saliban
+Salishan
+Shastan
+Sino-Tibetan
+Siouan
+South Omotic
+Southern Daly
+Tamaic
+Tangkic
+Tarascan
+Teberan
+Tequistlatecan
+Ticuna-Yuri
+Totonacan
+Tsimshian
+Tucanoan
+Tupian
+Turkic
+Unattested
+Unclassifiable
+Uralic
+Uru-Chipaya
+Uto-Aztecan
+Wakashan
+Western Daly
+Wintuan
+Worrorran
+Xincan
+Yam
+Yangmanic
+Yanomamic
+Yokutsan
+Yuki-Wappo
+Zamucoan
+Zaparoan
